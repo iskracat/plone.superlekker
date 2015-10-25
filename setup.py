@@ -9,18 +9,15 @@ if py_version < (3, 3):
 
 
 here = os.path.abspath(os.path.dirname(__file__))
-NAME = 'plone.superlekker'
-with open(os.path.join(here, 'README.rst')) as readme:
+NAME = 'plone.server'
+with open(os.path.join(here, 'README.md')) as readme:
     README = readme.read()
 with open(os.path.join(here, 'CHANGES.rst')) as changes:
     CHANGES = changes.read()
 
 requires = [
     'aiopyramid[gunicorn]',
-    'aioredis',
     'ujson',
-    # 'hiredis',
-    'ldap3',
     'pyjwt',
     'pyramid_raven',
     'raven'
@@ -29,7 +26,7 @@ requires = [
 setup(
     name=NAME,
     version='0.0',
-    description='plone.superlekker',
+    description='plone.server',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
         "Programming Language :: Python",
@@ -50,6 +47,6 @@ setup(
     install_requires=requires,
     entry_points="""\
     [paste.app_factory]
-    main = plone.superlekker:main
+    main = plone.server:main
     """,
 )
